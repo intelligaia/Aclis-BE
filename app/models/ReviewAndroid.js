@@ -77,12 +77,10 @@ class ReviewAndroid {
                 }else{
                     ratingByDate.find((o, i) => {
                             if (o.date === dateData) {
-                                // console.log("Checking Date Data Ifffff ", o,o.date, dateData)
                                 ratingByDate[i].rating = ratingByDate[i].rating + element.score;
                                 ratingByDate[i].count = ratingByDate[i].count + 1;
                                 
                             }else if((o.date != dateData) && ((ratingByDate.length -1) == i)){
-                                // console.log("Checking Date Data Elseeeee ", o,o.date, dateData)
                                 ratingByDate.push({date:dateData, rating:element.score, count:1})
                             }
                         });

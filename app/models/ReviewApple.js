@@ -20,7 +20,6 @@ class ReviewApple {
 
         //App Details
         let app_details = await astore.app({id: id_key})
-        console.log("Application Details",app_details )
 
         //Getting Review data from App Store
         let res  = await astore.reviews({
