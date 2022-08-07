@@ -1,0 +1,33 @@
+{
+  "name": "sentalyze",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rishikesh Chandra",
+  "license": "ISC",
+  "dependencies": {
+    "apos-to-lex-form": "^1.0.5",
+    "app-store-scraper": "^0.17.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.1",
+    "google-play-scraper": "^9.0.2",
+    "joi": "^17.6.0",
+    "koa": "^2.13.4",
+    "koa-body": "^5.0.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-compress": "^5.1.0",
+    "koa-logger": "^3.2.1",
+    "koa-router": "^12.0.0",
+    "koa-session": "^6.2.0",
+    "koa-static": "^5.0.0",
+    "koa-views": "^8.0.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "natural": "^5.2.3",
+    "spelling-corrector": "^3.0.0",
+    "stopword": "^2.0.2"
+  }
+}
