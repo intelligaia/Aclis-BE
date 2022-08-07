@@ -21,13 +21,18 @@ class ReviewAndroid {
         //App Details
         let app_details = await gplay.app({appId: id_key})
 
+        //Declaring Variables for Assigning Data after processing
+        var nume = 20
+
         //Getting Review data from Playstore
         var res = await gplay.reviews({
             appId: app_details.appId,
-            num: 50
+            num: nume
           })
-        
 
+        //Only Reading first 20 reviews
+        // res = res.slice(0, nume)
+        
         //Declaring Variables for Assigning Data after processing
         var googleData =  res.data;
         var sentimentAvg = 0.0;

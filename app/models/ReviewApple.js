@@ -21,12 +21,17 @@ class ReviewApple {
         //App Details
         let app_details = await astore.app({id: id_key})
 
+        //Declaring Variables for Assigning Data after processing
+        var nume = 20
+
         //Getting Review data from App Store
         let res  = await astore.reviews({
             appId: app_details.appId,
             page: 1
           })
-
+        
+        //Only Reading first 20 reviews
+        res = res.slice(0, nume)
 
         //Declaring Variables for Assigning Data after processing
         var appleData =  res;
@@ -85,7 +90,7 @@ class ReviewApple {
                 average_rating,
                 app_type
             )
-            VALUES(?,?,?,?,?)`,[user_details[0].id_users, app_details.appId, sentimentAvg/50, ratingAvg/50, 1]);
+            VALUES(?,?,?,?,?)`,[user_details[0].id_users, app_details.appId, sentimentAvg/nume, ratingAvg/nume, 1]);
         }else{
 
             var add_user = await db(`
@@ -105,7 +110,7 @@ class ReviewApple {
                 average_rating,
                 app_type
             )
-            VALUES(?,?,?,?,?)`,[add_user.insertId, app_details.appId, sentimentAvg/50, ratingAvg/50, 2]);
+            VALUES(?,?,?,?,?)`,[add_user.insertId, app_details.appId, sentimentAvg/nume, ratingAvg/nume, 2]);
         }
 
 
@@ -114,8 +119,8 @@ class ReviewApple {
             message: "Data Fetched successfully.",
             data: {
                 app_details: app_details,
-                average_sentiment: sentimentAvg/50,
-                average_rating: ratingAvg/50,
+                average_sentiment: sentimentAvg/nume,
+                average_rating: ratingAvg/nume,
                 sentiment_by_date: sentimentByDate,
                 rating_by_date: ratingByDate,
                 word_count: wordData
