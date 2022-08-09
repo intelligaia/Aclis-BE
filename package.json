@@ -9,6 +9,7 @@
   "author": "Rishikesh Chandra",
   "license": "ISC",
   "dependencies": {
+    "@koa/cors": "^3.3.0",
     "apos-to-lex-form": "^1.0.5",
     "app-store-scraper": "^0.17.0",
     "bcryptjs": "^2.4.3",

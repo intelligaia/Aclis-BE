@@ -7,9 +7,12 @@ const bodyParser   =        require('koa-bodyparser')   // body parser for form 
 const logger       =        require('koa-logger');      // logger for requests
 const serve        =        require('koa-static');      // static file server
 const views        =        require('koa-views');       // view rendering
+const cors         =        require('@koa/cors');       // CORS support
                             require('dotenv').config()  // load environment variables
 
 const app = new Koa();
+
+app.use(cors());
 
 /* setup global middleware */
 require('./bootstrap/errors');
