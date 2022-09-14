@@ -153,7 +153,8 @@ class ReviewAndroid {
                 sentiment_by_date: sentimentByDate,
                 rating_by_date: ratingByDate,
                 word_count: wordData,
-                reviews_processed: nume
+                reviews_processed: nume,
+                actual_response: res
 
             }
         }

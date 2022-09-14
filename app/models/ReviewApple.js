@@ -129,7 +129,7 @@ class ReviewApple {
                 rating_by_date: ratingByDate,
                 word_count: wordData,
                 reviews_processed: nume,
-                resp: res
+                actual_response: res
 
             }
         }
