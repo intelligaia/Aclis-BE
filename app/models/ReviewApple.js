@@ -22,7 +22,7 @@ class ReviewApple {
         let app_details = await astore.app({id: id_key})
 
         //Declaring Variables for Assigning Data after processing
-        var nume = 20
+        var nume = 100
 
         //Getting Review data from App Store
         let res  = await astore.reviews({
@@ -51,9 +51,9 @@ class ReviewApple {
             const { WordTokenizer } = natural;
             const tokenizer = new WordTokenizer();
             const tokenizedReview = tokenizer.tokenize(alphaOnlyReview);
-            tokenizedReview.forEach((word, index) => {
-                tokenizedReview[index] = spellCorrector.correct(word);
-              })
+            // tokenizedReview.forEach((word, index) => {
+            //     tokenizedReview[index] = spellCorrector.correct(word);
+            //   })
             const filteredReview = SW.removeStopwords(tokenizedReview);
             const analysis = analyzer.getSentiment(filteredReview);
             
@@ -123,7 +123,8 @@ class ReviewApple {
                 average_rating: ratingAvg/nume,
                 sentiment_by_date: sentimentByDate,
                 rating_by_date: ratingByDate,
-                word_count: wordData
+                word_count: wordData,
+                reviews_processed: nume
 
             }
         }

@@ -17,12 +17,13 @@ class ReviewAndroid {
 
         //Fetch AppID from URL
         let id_key = params.url.split('=')[1];
+        id_key = id_key.split('&')[0]
 
         //App Details
         let app_details = await gplay.app({appId: id_key})
 
         //Declaring Variables for Assigning Data after processing
-        var nume = 20
+        var nume = 100
 
         //Getting Review data from Playstore
         var res = await gplay.reviews({
@@ -52,9 +53,9 @@ class ReviewAndroid {
             const { WordTokenizer } = natural;
             const tokenizer = new WordTokenizer();
             const tokenizedReview = tokenizer.tokenize(alphaOnlyReview);
-            tokenizedReview.forEach((word, index) => {
-                tokenizedReview[index] = spellCorrector.correct(word);
-              })
+            // tokenizedReview.forEach((word, index) => {
+            //     tokenizedReview[index] = spellCorrector.correct(word);
+            //   })
             const filteredReview = SW.removeStopwords(tokenizedReview);
             const analysis = analyzer.getSentiment(filteredReview);
             var dateData = element.date.split('T')[0]
@@ -148,11 +149,12 @@ class ReviewAndroid {
             message: "Data Fetched successfully.",
             data: {
                 app_details:app_details,
-                average_sentiment: sentimentAvg/50,
-                average_rating: ratingAvg/50,
+                average_sentiment: sentimentAvg/nume,
+                average_rating: ratingAvg/nume,
                 sentiment_by_date: sentimentByDate,
                 rating_by_date: ratingByDate,
-                word_count: wordData
+                word_count: wordData,
+                reviews_processed: nume
 
             }
         }
