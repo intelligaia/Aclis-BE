@@ -14,7 +14,7 @@
     "app-store-scraper": "^0.17.0",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.1",
-    "google-play-scraper": "^9.0.2",
+    "google-play-scraper": "^9.1.1",
     "joi": "^17.6.0",
     "koa": "^2.13.4",
     "koa-body": "^5.0.0",
