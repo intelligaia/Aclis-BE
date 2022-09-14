@@ -31,8 +31,7 @@ class ReviewAndroid {
             num: nume
           })
 
-        //Only Reading first 20 reviews
-        // res = res.slice(0, nume)
+        //Only Reading first 100 reviews
         
         //Declaring Variables for Assigning Data after processing
         var googleData =  res.data;

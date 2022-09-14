@@ -29,9 +29,13 @@ class ReviewApple {
             appId: app_details.appId,
             page: 1
           })
+        let res1  = await astore.reviews({
+            appId: app_details.appId,
+            page: 2
+          })
         
-        //Only Reading first 20 reviews
-        res = res.slice(0, nume)
+        //Only Reading first 100 reviews
+        res = res.concat(res1);
 
         //Declaring Variables for Assigning Data after processing
         var appleData =  res;
@@ -124,7 +128,8 @@ class ReviewApple {
                 sentiment_by_date: sentimentByDate,
                 rating_by_date: ratingByDate,
                 word_count: wordData,
-                reviews_processed: nume
+                reviews_processed: nume,
+                resp: res
 
             }
         }
