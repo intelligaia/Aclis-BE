@@ -8,7 +8,7 @@ exports.get_details = async function(ctx){
 
     const schema = Joi.object({ 
       full_name: Joi.string().required(),
-      email: Joi.string(),
+      email: Joi.string().email(),
       message: Joi.string()
     }); 
     const validation = schema.validate(ctx.request.body);
