@@ -28,7 +28,9 @@
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
     "natural": "^5.2.3",
+    "puppeteer": "^23.5.3",
     "spelling-corrector": "^3.0.0",
-    "stopword": "^2.0.2"
+    "stopword": "^2.0.2",
+    "trustpilot": "^4.0.1"
   }
 }

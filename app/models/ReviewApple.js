@@ -55,9 +55,9 @@ class ReviewApple {
             const { WordTokenizer } = natural;
             const tokenizer = new WordTokenizer();
             const tokenizedReview = tokenizer.tokenize(alphaOnlyReview);
-            // tokenizedReview.forEach((word, index) => {
-            //     tokenizedReview[index] = spellCorrector.correct(word);
-            //   })
+            tokenizedReview.forEach((word, index) => {
+                tokenizedReview[index] = spellCorrector.correct(word);
+              })
             const filteredReview = SW.removeStopwords(tokenizedReview);
             const analysis = analyzer.getSentiment(filteredReview);
             
@@ -78,44 +78,44 @@ class ReviewApple {
         }, {});
 
 
-        var user_details = await db(`
-            SELECT * 
-            FROM users
-            WHERE browser_unique_id = ?
-        `,[params.browser_unique_id])
+        // var user_details = await db(`
+        //     SELECT * 
+        //     FROM users
+        //     WHERE browser_unique_id = ?
+        // `,[params.browser_unique_id])
 
-        if(user_details.length > 0){
+        // if(user_details.length > 0){
             
-            var add_logs = await db(`
-            INSERT INTO search_logs(
-                id_users,
-                app_id,
-                average_sentiment,
-                average_rating,
-                app_type
-            )
-            VALUES(?,?,?,?,?)`,[user_details[0].id_users, app_details.appId, sentimentAvg/nume, ratingAvg/nume, 1]);
-        }else{
+        //     var add_logs = await db(`
+        //     INSERT INTO search_logs(
+        //         id_users,
+        //         app_id,
+        //         average_sentiment,
+        //         average_rating,
+        //         app_type
+        //     )
+        //     VALUES(?,?,?,?,?)`,[user_details[0].id_users, app_details.appId, sentimentAvg/nume, ratingAvg/nume, 1]);
+        // }else{
 
-            var add_user = await db(`
-            INSERT INTO users(
-                browser_unique_id,
-                browser,
-                location
-            )
-            VALUES(?,?,?)
-            `,[params.browser_unique_id, params.browser, params.location]);
+        //     var add_user = await db(`
+        //     INSERT INTO users(
+        //         browser_unique_id,
+        //         browser,
+        //         location
+        //     )
+        //     VALUES(?,?,?)
+        //     `,[params.browser_unique_id, params.browser, params.location]);
 
-            var add_logs = await db(`
-            INSERT INTO search_logs(
-                id_users,
-                app_id,
-                average_sentiment,
-                average_rating,
-                app_type
-            )
-            VALUES(?,?,?,?,?)`,[add_user.insertId, app_details.appId, sentimentAvg/nume, ratingAvg/nume, 2]);
-        }
+        //     var add_logs = await db(`
+        //     INSERT INTO search_logs(
+        //         id_users,
+        //         app_id,
+        //         average_sentiment,
+        //         average_rating,
+        //         app_type
+        //     )
+        //     VALUES(?,?,?,?,?)`,[add_user.insertId, app_details.appId, sentimentAvg/nume, ratingAvg/nume, 2]);
+        // }
 
 
         var retVal = {
